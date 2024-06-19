@@ -6,7 +6,19 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # GET /about
-  get "/about-us", to: "about#index", as: :about
+  get "/about", to: "about#index", as: :about
+
+  #GET /sign_up
+  get "/sign_up", to: "registrations#new"
+  post "/sign_up", to: "registrations#create"
+
+  #GET /sign_in
+  get "/sign_in", to: "sessions#new"
+  post "/sign_in", to: "sessions#create"
+
+
+  delete "logout", to: "sessions#destroy"
+
 
   #GET root
   root to: "main#index"
